@@ -1,0 +1,46 @@
+﻿<Window x:Class="ÜbungsbeispielBibliothek.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ÜbungsbeispielBibliothek"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+         
+            <ComboBox x:Name="Filter" Width="120" Margin="5">
+                <ComboBoxItem Content="Books by Price Range"/>
+                <ComboBoxItem Content="Books by Genre"/>
+                <ComboBoxItem Content="Books by Year"/>
+                <ComboBoxItem Content="Newest 5 Books"/>
+                <ComboBoxItem Content="Genre and Price"/>
+            </ComboBox>
+            <TextBlock Text="Price Min" VerticalAlignment="Center"/>
+            <TextBox x:Name="priceMinFilter" Width="80" Margin="5"/>
+            <TextBlock Text="Price Max" VerticalAlignment="Center"/>
+            <TextBox x:Name="priceMaxFilter" Width="80" Margin="5"/>
+            <TextBlock Text="Keyword" VerticalAlignment="Center"/>
+            <TextBox x:Name="TextKeyword" Width="80" Margin="5"/>
+            <Button Content="Apply Filter" Width="100" Margin="5" Click="applyFilter"/>
+            <Button Content="DetailsWindow" Width="100" Margin="5" Click="openDetailsWindow"/>
+        </StackPanel>
+        <DataGrid x:Name="booksDataGrid" AutoGenerateColumns="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding BuchID}"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Titel}"/>
+                <DataGridTextColumn Header="Autor" Binding="{Binding Autor}"/>
+                <DataGridTextColumn Header="Jahr" Binding="{Binding Jahr}"/>
+                <DataGridTextColumn Header="Preis" Binding="{Binding Preis}"/>
+                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}"/>
+                <DataGridTextColumn Header="VerlagID" Binding="{Binding VerlagID}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
